@@ -12,6 +12,8 @@ this.donutChart = function(){
         percentFormat = d3.format(',.2%');
 
     function chart(selection){
+    //  selection.attr("id","donutCircle1")
+
         selection.each(function(data) {
             // generate chart
 
@@ -45,12 +47,12 @@ this.donutChart = function(){
                 .attr('width', width + margin.left + margin.right)
                 .attr('height', height + margin.top + margin.bottom)
                 .attr("id","donutCircle1")
-                .attr("x",-380)
-                .attr("y",-170)
+                .attr("x",280)
+                .attr("y",170)
 
 
                 .append('g')
-               .attr('transform', 'translate(' + ((width/2))+ ',' + ((height / 2)) + ')')
+        //       .attr('transform', 'translate(' + ((width/2))+ ',' + ((height / 2)) + ')')
 
             // ===========================================================================================
 

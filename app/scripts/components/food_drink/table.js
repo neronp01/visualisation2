@@ -3,8 +3,8 @@
  */
 this.getTable = function(table,sett,data){
 
-d3.select(".table").attr("x",10000).attr("y",10000);
-    var margin = {top: -1000, right: 0, bottom: 0, left: -1000},
+//d3.select(".table").attr("x",10000).attr("y",10000);
+    var margin = {top: -400, right: 0, bottom: 0, left: -200},
         width = 380 - margin.left - margin.right,
         height = 750 - margin.top - margin.bottom;
 

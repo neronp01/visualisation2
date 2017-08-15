@@ -132,7 +132,7 @@ gulp.task('scripts', () =>
       './app/scripts/main.js',
       './app/scripts/d3/d3.js',
       './app/scripts/d3/topojson.v1.min.js',
-      './app/scripts/components/pie/donut chart.js',
+      './app/scripts/components/pie/donutChart.js',
       './app/scripts/components/food_drink/table.js',
       './app/scripts/components/pie/Bilevel Partition.js',
       './app/scripts/components/food_drink/line.js',

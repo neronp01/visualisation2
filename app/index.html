@@ -265,7 +265,7 @@
     <!-- build:js(app/) ../../scripts/main.min.js -->
     <script src="./scripts/d3/d3.js"></script>
     <script src="./scripts/d3/topojson.v1.min.js"></script>
-    <script src="./scripts/components/pie/donut chart.js"></script>
+    <script src="./scripts/components/pie/donutChart.js"></script>
     <script src="./scripts/components/food_drink/table.js"></script>
     <script src="./scripts/components/pie/Bilevel Partition.js"></script>
     <script src="./scripts/components/food_drink/line.js"></script>
@@ -397,7 +397,7 @@
             .transition()
             .duration(2000)
             .attr("transform","translate(380,380),scale(2)")
-          console.log("test");
+
         })
       //d3.axisBottom(xRange).tickFormat(function(d){ return d.x;});
 
@@ -409,6 +409,7 @@
         .padAngle(0.015) // effectively dictates the gap between slices
         .variable('Probability')
         .category('Species');
+console.log(donut);
 
       d3.tsv('species.tsv', function(error, data) {
         if (error) throw error;
@@ -531,13 +532,16 @@
         //  var demoTable =svg.append("g").append("table").attr("id","test23").attr("style", "margin-left: 250px");
 
 
-        mapX=300,mapY=380
+        mapX=500,mapY=500
         var canadaMap = svg.append("g");
 
-
-        var canadaChartLine = svg
+        var canadaChartLine1 = svg
           .append("g")
-          .attr("id","donutChart1");
+          .attr("id","canadaChartLine");
+
+//        var canadaChartLine = svg
+//          .append("g")
+
 
         getLineChart(canadaData.canada);
 
@@ -696,14 +700,12 @@
           var focus0 = focus;
           focus = d;
           var ident = d.children[0].data.name;
-          var token = 245.72930484471138
+          var token = 150.3755879262101
           var transition = d3.transition()
             .duration(d3.event.altKey ? 7500 : 750)
             .tween("zoom", function (d) {
               var i = d3.interpolateZoom(view, [focus.x, focus.y, focus.r * 2 + margin]);
-
               return function (t) {
-
                 zoomTo(i(t),token/i(t)[2],t);
               };
             });
@@ -740,7 +742,7 @@
                   .attr("transform", function (e) {
                     var sumTranX = ((data.x - v[0]) * k + 400);
                     var sumTranY = ((data.y - v[1]) * k + 400);
-                    console.log(sumTranX,sumTranY);
+
                     return "translate(" + sumTranX + "," + sumTranY + "),scale(" + t + ") "
                   });
                 break;
@@ -751,28 +753,28 @@
                   .attr("transform", function (e) {
                     var sumTranX = (data.x - v[0]) * k + 400;
                     var sumTranY = (data.y - v[1]) * k + 400;
-                    return "translate(" + sumTranX + "," + sumTranY + "),scale(" + t + ") "
+                    return "translate(" + sumTranX + "," + sumTranY + "),scale(" + t *.7  + ") "
                   });
                 break;
               case "CanadaTable":
 
                 d3.select(".table")
                   .attr("transform", function (e) {
-                    var sumTranX = ((data.x - v[0]) * k + 540)*1.0075;
-                    var sumTranY = ((data.y - v[1]) * k + 540)*1.01;
-console.log(sumTranX,sumTranY,t*.4)
-                    return "translate(" + sumTranX + "," + sumTranY + "),scale(" + t+ ")"
+                    var sumTranX = ((data.x - v[0]) * k + 400)*1.0075;
+                    var sumTranY = ((data.y - v[1]) * k + 400)*1.01;
+
+                    return "translate(" + sumTranX + "," + sumTranY + "),scale(" + t*.6+ ")"
                   });
                 break;
 
-              case "DunutChart":
+              case "Data":
 
                 d3.select("#donutCircle1")
                   .attr("transform", function (e) {
-                    var sumTranX = ((data.x - v[0]) * k + 540)*(.9+(.1*v[2]/1100));
-                    var sumTranY = ((data.y - v[1]) * k + 540)*(.9+(.1*v[2]/1100));
+                    var sumTranX = ((data.x - v[0]) * k + 400)*(.9+(.1*v[2]/1100));
+                    var sumTranY = ((data.y - v[1]) * k + 400)*(.9+(.1*v[2]/1100));
 
-
+                    console.log(sumTranX);
 
                     return "translate(" + sumTranX + "," + sumTranY + "),scale(" + t *0.4+ ")"
                   });

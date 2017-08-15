@@ -4,6 +4,7 @@
 
 
 this.getLineChart = function(v) {
+  console.log("test")
 // set the dimensions and margins of the graph
     var margin = {top: -100, right: 0, bottom: 0, left: -320},
         width = 380 - margin.left - margin.right,

@@ -223,7 +223,7 @@ this.getCanadaMap = function(svg, settings,positionX,positionY) {
 	}
 
     var projection = d3.geoMercator()
-        .scale(45*4.4764705646123275)
+        .scale(65*4.4764705646123275)
         .translate( [positionX,positionY]);
 
     var path = d3.geoPath().projection(projection);
